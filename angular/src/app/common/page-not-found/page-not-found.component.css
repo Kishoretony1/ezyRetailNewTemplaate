@@ -1,0 +1,17 @@
+#container {
+    margin: 10px;
+    border: 1px solid #D0D0D0;
+    box-shadow: 0 0 8px #d0d0d0;
+}
+#container h1 {
+    color: #444;
+    background-color: transparent;
+    border-bottom: 1px solid #D0D0D0;
+    font-size: 19px;
+    font-weight: normal;
+    margin: 0 0 14px 0;
+    padding: 14px 15px 10px 15px;
+}
+#container p, #container a {
+    margin: 12px 15px 12px 15px;
+}

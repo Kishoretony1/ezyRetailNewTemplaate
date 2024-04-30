@@ -1,0 +1,54 @@
+/* your-component.component.scss */
+
+
+/* Add more component-specific styles if needed */
+.card-body{
+  margin-bottom: 10px;
+}
+
+.prodct_card {
+  background-color: #4099ff;
+  color: #333;
+  padding:10px;
+  border-radius: 5px;
+}
+.active_promotion_card{
+  background-color: #ff5370;
+  color: #333;
+  padding:10px;
+  border-radius: 5px;
+}
+.beacon_card{
+  background-color: #ffb64d;
+  color: #333;
+  padding:10px;
+  border-radius: 5px;
+}
+.sales_revenue_card{
+  background-color: #2ed8b6;
+  color: #333;
+  padding:10px;
+  border-radius: 5px;
+  height: 100px;
+}
+.total_trans_card{
+  background-color: #ffb64d;
+  color: #333;
+  padding:10px;
+  border-radius: 5px;
+  height: 100px;
+}
+.avg_trans_value_card{
+  background-color: #2ed8b6;
+  color: #333;
+  padding:10px;
+  border-radius: 5px;
+  height: 100px;
+}
+.avg_basket_size_card{
+  background-color: #ff5370;
+  color: #333;
+  padding:10px;
+  border-radius: 5px;
+  height: 100px;
+}

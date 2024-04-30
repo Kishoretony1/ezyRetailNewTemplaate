@@ -1,0 +1,152 @@
+<div class="row">
+
+    <div class="col-md-6"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-4 card_head_button">
+
+             <div class="actions" style="margin-right: 20px;">
+                  <div class="btn-group">
+                      <a  type="button" (click)="byTransactionBack()" class="btn btn-shadow btn-dark" ngbTooltip="btn-outline-dark"> Back</a>
+                  </div>
+              </div>
+              <div class="actions" style="margin-right: 20px;">
+                <div class="btn-group"  >
+                  <button  type="button" class="btn btn-shadow btn-success" ngbTooltip="btn-outline-info" (click)="viewInvoiceNum()">View Recipt</button>
+                </div>
+            </div>
+            <div class="actions" style="margin-right: 20px;">
+              <div class="btn-group"  >
+                <button *ngIf="details.posStatusText == 'Pending'" type="button" class="btn btn-shadow btn-info" ngbTooltip="btn-outline-success" (click)="posSync()">Pos sync</button>
+
+              </div>
+          </div>
+          </div>
+
+
+
+
+</div>
+
+  <div class="invoice">
+    <div class="main_heading">
+      <h2>
+        <span><b>{{ outletName }}</b></span><br>
+      </h2>
+
+        <span>{{details.transactionDate}}</span>
+    </div>
+
+
+    <div class="invoice-header">
+
+        <div class="invoice-header-left">
+
+
+
+            <!--  -->
+                          <h2>Payment Status : <b>{{details.paymentStatusText}} </b></h2>
+                          <p>Customer Name : <b>{{details.customerName}} </b></p>
+                          <p>Email : <b>{{details.customerEmail}}</b></p>
+                          <p>Phone : <b>{{details.customerPhoneNo}}</b></p>
+
+                          <p *ngIf="details.paymentMerchantId">Merchant Id : <b>{{details.paymentMerchantId ? details.paymentMerchantId :'-'}}</b></p>
+                          <p *ngIf="details.paymentTerminalId">Terminal Id : <b>{{details.paymentTerminalId}}</b></p>
+
+                          <p *ngIf="details.memberPhone">T1 Member Phone :
+                              <!-- <ngx-barcode [bc-value]="details.memberPhone" [bc-width]="1.5" [bc-height]="40" [bc-display-value]="true"></ngx-barcode> -->
+
+                          </p>
+                          <p *ngIf="!details.memberPhone && details.memberNumber">T1 Member ID :
+                              <!-- <b>{{details.memberNumber}}</b> -->
+                              <!-- <ngx-barcode [bc-value]="details.memberNumber" [bc-width]="1.5" [bc-height]="40" [bc-display-value]="true"></ngx-barcode> -->
+                          </p>
+                          <p>{{ details.paymentMerchantId == 'EDC'?'Approval No : ':'Reference No : ' }}
+                              <!-- <b>{{details.transactionRef}}</b> -->
+                              <!-- <ngx-barcode [bc-width]="1.5" [bc-height]="40" [bc-value]="details.paymentMerchantId == 'EDC'?details.paymentRef:details.transactionRef" [bc-display-value]="true"></ngx-barcode> -->
+                          </p>
+            <!--  -->
+        </div>
+        <div class="invoice-header-right">
+            <h2>Invoice</h2>
+            <p>Invoice Num. : <b>{{details.invoiceNum}}</b></p>
+                          <p>Payment Type : <b>{{details.cardScheme != "" ? details.paymentMethod + ' (' + details.cardScheme + ')' : details.paymentMethod}}</b></p>
+                          <p *ngIf="details.paymentCartNumber">Payment Card Number : <b>{{details.paymentCartNumber}}</b></p>
+        </div>
+    </div>
+<div *ngIf="details.products">
+    <table class="invoice-table">
+        <thead>
+            <tr>
+                <th>SKU Num.</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Special Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let products of details.products">
+              <td> {{products.SKU}} </td>
+              <td>{{products.productName}} </td>
+              <!-- <td>Drinks</td> -->
+              <td>
+                  {{products.price}}
+              </td>
+              <td style="text-align: right;">{{products.specialPrice}} <span *ngIf="products.isFreshItem && products.specialPrice &&
+products.specialPrice != '-'">{{products.UOM=='SKG'}}</span></td>
+              <td style="text-align: right;">
+                  <span *ngIf="!products.isFreshItem">{{products.quantity}}</span>
+                  <span *ngIf="products.isFreshItem">{{products.purchaseWight}} </span>
+
+              </td>
+              <td style="text-align: right;">{{products.total}}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Sub Total ({{auth.getCurrency()}})</td>
+              <td style="text-align: right;"><b>{{details.subTotal}}</b></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Promo Discount</td>
+            <td style="text-align: right;"><b>{{details.promoDiscount}}</b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Special Discount</td>
+          <td style="text-align: right;"><b>{{details.discount}}</b></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Tax ({{auth.getCurrency()}})</td>
+        <td style="text-align: right;"><b>{{details.tax ? details.tax : 0}}</b></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Grand Total ({{auth.getCurrency()}})</td>
+      <td style="text-align: right;"><b>{{details.grandTotal}}</b></td>
+  </tr>
+            <!-- Add more items as needed -->
+        </tbody>
+    </table>
+    </div>
+
+
+</div>
+

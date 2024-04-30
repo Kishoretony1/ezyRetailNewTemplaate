@@ -1,0 +1,154 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-12">
+      <div class="portlet box">
+          <div class="portlet-title">
+              <div class="caption">
+                  <!-- <div class="btn-group">
+
+                      <a (click)="confirmValidation(details.actions.text)" *ngIf="details && details.actions && details.actions.text && page" class="btn btn-sm btn-warning mlr-10"> {{details.actions.text}}</a>
+                  </div> -->
+              </div>
+              <div class="actions">
+                  <div class="btn-group">
+                      <a (click)="byTrollyBack()" class="btn btn-sm blue"> Back</a>
+                  </div>
+              </div>
+              <!-- <div class="actions" style="margin-right: 20px;">
+                <div class="btn-group"  >
+                  <button   class="btn btn-sm blue" (click)="viewInvoiceNum()">view Recipt</button>
+
+                </div>
+            </div> -->
+          </div>
+      </div>
+
+      <div class="box box-primary">
+          <div class="row">
+              <div class="col-md-12 table-container">
+                  <div class="row">
+
+
+                    <div class="col-md-12 text-center" style="margin-bottom: 50px;">
+                      <span><b>{{ outletName }}</b></span><br>
+
+                  </div>
+
+                      <div class="col-md-4" style="margin-bottom: 30px;">
+                          <h5>Cart Id: <b>{{details.cartId}} </b></h5>
+                          <!-- <div  *ngIf="details.cartItems">
+                            <div *ngFor="let cartItems of details.cartItems">
+                              <p>Cart Item Image</p>
+                              <img src="{{cartItems.imageUrl}}" width="200" height="200">
+
+                            </div>
+                            </div> -->
+                      </div>
+
+
+
+                  </div>
+                  <hr>
+                  <div class="box-body no-padding table-responsive" *ngIf="details.cartItems">
+                      <table class="table">
+                          <thead>
+                              <tr class="tbl_head_bg">
+                                  <th class="head1 no-sort">STK Num.</th>
+                                  <th class="head1 no-sort">Barcode</th>
+                                  <th class="head1 no-sort">Product Name</th>
+                                  <th class="head1 no-sort">Cart Item Image</th>
+                                  <th class="head1 no-sort">Unit Price</th>
+                                  <th class="head1 no-sort">Special Price</th>
+                                  <th class="head1 no-sort">Quantity</th>
+                                  <th class="head1 no-sort"> Total</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let cartItems of details.cartItems">
+                                <td> {{cartItems.stkNo}} </td>
+                                <td> {{cartItems.barcode}} </td>
+                                <td> {{cartItems.productName}} </td>
+
+                                <td>
+                                  <img src="{{cartItems.imageUrl}}" width="100" height="100">
+                                </td>
+                                <td> {{cartItems.unitPrice}} </td>
+                                <td> {{cartItems.specialPrice ? cartItems.specialPrice:'-'}}</td>
+                                <td> {{cartItems.quantity ? cartItems.quantity:'-'}}</td>
+                                <td> {{cartItems.originalPrice ? cartItems.originalPrice:'-'}}</td>
+                                 <tr>
+
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Sub Total ({{auth.getCurrency()}})</td>
+                                    <td ><b>{{details.totalPrice ? details.totalPrice:0}}</b></td>
+                                </tr>
+                                <tr *ngFor="let cartItems of details.cartItems">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Total Discount</td>
+                                    <td ><b>{{cartItems.discountPrice ? cartItems.discountPrice:0}}</b></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Special Discount</td>
+                                    <td ><b>{{details.totalDiscount ?details.totalDiscount:0 }}</b></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Tax ({{auth.getCurrency()}})</td>
+                                    <td ><b>{{details.tax ? details.tax : 0}}</b></td>
+                                </tr>
+
+                                <tr *ngFor="let cartItems of details.cartItems">
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  <td>Final Price ({{auth.getCurrency()}})</td>
+                                  <td><b>{{cartItems.finalPrice ? cartItems.finalPrice : 0}}</b></td>
+                              </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Grand Total ({{auth.getCurrency()}})</td>
+                                    <td><b>{{details.finalAmount}}</b></td>
+                                </tr>
+                        </tbody>
+
+                      </table>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+          </div>
+          <div class="clearfix"></div>
+      </div>
+      <!-- panel body -->
+  </div>
+</div>

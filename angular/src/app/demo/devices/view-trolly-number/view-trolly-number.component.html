@@ -1,0 +1,143 @@
+<div class="row">
+
+  <div class="col-md-6"></div>
+<div class="col-md-5"></div>
+<div class="col-md-1 card_head_button">
+
+           <div class="actions" style="margin-right: 20px;">
+                <div class="btn-group">
+                    <a  type="button" (click)="byTrollyBack()" class="btn btn-shadow btn-dark" ngbTooltip="btn-outline-dark"> Back</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+</div>
+
+<div class="invoice">
+  <div class="main_heading">
+    <h2>
+      <span><b>{{ outletName }}</b></span><br>
+    </h2>
+    </div>
+
+
+  <div class="invoice-header">
+
+      <div class="invoice-header-left">
+
+
+
+          <!--  -->
+                        <h4>Cart Id: <b>{{details.cartId}} </b></h4>
+
+          <!--  -->
+      </div>
+      <div class="invoice-header-right">
+          <!-- we can the datas whatever which needed -->
+      </div>
+  </div>
+<div *ngIf="details.cartItems">
+  <table class="invoice-table">
+      <thead>
+          <tr>
+              <th>SKU Num.</th>
+              <th>Barcode</th>
+              <th>Product Name</th>
+              <th>Cart Item Image</th>
+              <th>Unit Price</th>
+              <th>Special Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let cartItems of details.cartItems">
+                                <td> {{cartItems.stkNo}} </td>
+                                <td> {{cartItems.barcode}} </td>
+                                <td> {{cartItems.productName}} </td>
+                                <td>
+                                  <img src="{{cartItems.imageUrl}}" width="100" height="100">
+                                </td>
+                                <td> {{cartItems.unitPrice}} </td>
+                                <td> {{cartItems.specialPrice ? cartItems.specialPrice:'-'}}</td>
+                                <td> {{cartItems.quantity ? cartItems.quantity:'-'}}</td>
+                                <td> {{cartItems.originalPrice ? cartItems.originalPrice:'-'}}</td>
+                                 <tr>
+
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Sub Total ({{auth.getCurrency()}})</td>
+                                    <td ><b>{{details.totalPrice ? details.totalPrice:0}}</b></td>
+                                </tr>
+                                <tr *ngFor="let cartItems of details.cartItems">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Total Discount</td>
+                                    <td ><b>{{cartItems.discountPrice ? cartItems.discountPrice:0}}</b></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Special Discount</td>
+                                    <td ><b>{{details.totalDiscount ?details.totalDiscount:0 }}</b></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Tax ({{auth.getCurrency()}})</td>
+                                    <td ><b>{{details.tax ? details.tax : 0}}</b></td>
+                                </tr>
+
+                                <tr *ngFor="let cartItems of details.cartItems">
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  <td>Final Price ({{auth.getCurrency()}})</td>
+                                  <td><b>{{cartItems.finalPrice ? cartItems.finalPrice : 0}}</b></td>
+                              </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Grand Total ({{auth.getCurrency()}})</td>
+                                    <td><b>{{details.finalAmount}}</b></td>
+                                </tr>
+          <!-- Add more items as needed -->
+      </tbody>
+  </table>
+  </div>
+
+
+</div>
+
+
+
+

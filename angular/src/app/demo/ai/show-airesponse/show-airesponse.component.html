@@ -1,0 +1,38 @@
+
+
+
+
+<h3 class="popup_title">
+  <h4><b>Ai Response</b></h4>
+  <button mat-button class="modal_close_icon" [mat-dialog-close]="true" cdkFocusInitial (click)="closeDialog()">
+      <i class="material-icons">
+          close
+      </i>
+  </button>
+</h3>
+<mat-dialog-content class="mat-typography md-dialog" align="center">
+  <div class="box box-primary">
+      <div class="box-body mg-l">
+          <div class="row">
+              <div class="col-md-12" style="
+              text-align: initial;">
+                <h3>Found :{{   data.aiResponse.found }}</h3>
+                <h3>D conf :{{   data.aiResponse.d_conf }}</h3>
+                <h3>P conf :{{   data.aiResponse.p_conf }}</h3>
+                <h3>status :{{   data.aiResponse.status }}</h3>
+                <h3>Product :{{   data.aiResponse.product }}</h3>
+                <h3>filename :{{   data.aiResponse.filename }}</h3>
+                <h3>Timestamp :{{   data.aiResponse.timestamp }}</h3>
+                <h3>Predictions :{{   data.aiResponse.predictions.ref_dir }}</h3>
+                <h3>Elapsed time :{{   data.aiResponse.elapsed_time }}</h3>
+                  <!-- <h2>{{data.productName + ' (' + data.barCode + ') '}} </h2> -->
+
+              </div>
+          </div>
+
+          <div class="clearfix"></div>
+      </div>
+  </div>
+
+
+</mat-dialog-content>

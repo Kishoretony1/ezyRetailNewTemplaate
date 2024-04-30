@@ -1,0 +1,281 @@
+
+
+<!-- edit section starts  -->
+<section
+  class="header-user-list customise_list"
+  [ngClass]="{ open: visibleEditSection }"
+  [@slideInOutLeft]
+>
+
+<div class="row">
+  <div class="col-md-12" >
+    <div  class="table_head_form">
+      <div class="row">
+        <div class="col-md-8 "><h5 style="text-align: center;
+          padding: 10px;font-size: 16px;"><b>Edit Zones</b></h5>
+
+        </div>
+        <div class="col-md-4" style="text-align: end;margin-top: 10px;">
+          <button    (click)="closeChatBox()" style="background-color: transparent;border: 1px solid #faf5e3">
+            <i class="fas fa-circle-xmark" style="font-size: 18px;">
+
+            </i>
+          </button>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="form_section">
+
+      <form action="javascript:" [formGroup]="saveForm" (ngSubmit)="onSubmit(saveForm)">
+        <div class="form-group">
+          <label>Banner Image</label>
+          <input (change)="onSelectFile($event)" type="file" id="bannerimage" name="bannerimage" accept=".png, .jpg, .jpeg" formControlName="banner" />
+        </div>
+
+        <!--  -->
+        <div class="form-group">
+          <label>Position</label>
+          <input type="text" class="form-control" placeholder="Text" formControlName="position"/>
+        </div>
+
+        <!--  -->
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Type</label>
+          <select class="form-control" id="exampleFormControlSelect1" formControlName="type"
+          (change)="onTypeChange($event)">
+            <option value="0">Gentral</option>
+            <option value="1">aisle/beacon</option>
+
+
+          </select>
+        </div>
+
+        <div class="show_hide_div" *ngIf="isDivVisible">
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Aisle</label>
+            <select class="form-control" id="exampleFormControlSelect1" formControlName="aisle" (change)="getBeaconById($event)">
+              <option *ngFor="let zone of zones" [value]="zone.zoneId">
+                {{zone.zoneName}}
+
+              </option>
+
+              <!--  -->
+
+              <!--  -->
+
+            </select>
+          </div>
+
+          <div class="form-group" *ngIf="!shouldHideDiv">
+            <label for="exampleFormControlSelect1">Beacon</label>
+            <select class="form-control" id="exampleFormControlSelect1" formControlName="beacon">
+              <option *ngFor="let adt of beacons"  [value]="adt.zoneId">
+                {{adt.beacons[0].serialNumber}}
+
+              </option>
+
+              <!--  -->
+
+              <!--  -->
+
+            </select>
+          </div>
+
+        </div>
+        <div style="text-align: center;">
+          <button type="submit" class="btn btn-primary">Update</button>
+
+        </div>
+
+      </form>
+    </div>
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+</section>
+
+<!-- edit section ends -->
+
+
+<!-- add section starts  -->
+<section
+  class="header-user-list customise_list"
+  [ngClass]="{ open: visibleAddSection }"
+  [@slideInOutLeft]
+>
+
+<div class="row">
+  <div class="col-md-12" >
+    <div  class="table_head_form">
+      <div class="row">
+        <div class="col-md-8 "><h5 style="text-align: center;
+          padding: 10px;font-size: 16px;"><b>Add Banner</b></h5>
+
+        </div>
+        <div class="col-md-4" style="text-align: end;margin-top: 10px;">
+          <button    (click)="closeAddChatBox()" style="background-color: transparent;border: 1px solid #faf5e3">
+            <i class="fas fa-circle-xmark" style="font-size: 18px;">
+
+            </i>
+          </button>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="form_section">
+
+      <form action="javascript:" [formGroup]="saveAddForm" (ngSubmit)="onAddSubmit(saveAddForm)">
+        <div class="form-group">
+          <label>Banner Image</label>
+          <input (change)="onSelectFile($event)" type="file" id="bannerimage" name="bannerimage" accept=".png, .jpg, .jpeg" formControlName="banner" />
+        </div>
+
+        <!--  -->
+        <div class="form-group">
+          <label>Position</label>
+          <input type="text" class="form-control" placeholder="Text" formControlName="position"/>
+        </div>
+
+        <!--  -->
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Type</label>
+          <select class="form-control" id="exampleFormControlSelect1" formControlName="type"
+          (change)="onTypeChange($event)">
+            <option value="0">Gentral</option>
+            <option value="1">aisle/beacon</option>
+
+
+          </select>
+        </div>
+
+        <div class="show_hide_div" *ngIf="isDivVisible">
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Aisle</label>
+            <select class="form-control" id="exampleFormControlSelect1" formControlName="aisle" (change)="getBeaconById($event)">
+              <option *ngFor="let zone of zones" [value]="zone.zoneId">
+                {{zone.zoneName}}
+
+              </option>
+
+              <!--  -->
+
+              <!--  -->
+
+            </select>
+          </div>
+
+          <div class="form-group" *ngIf="!shouldHideDiv">
+            <label for="exampleFormControlSelect1">Beacon</label>
+            <select class="form-control" id="exampleFormControlSelect1" formControlName="beacon">
+              <option *ngFor="let adt of beacons"  [value]="adt.zoneId">
+                {{adt.beacons[0].serialNumber}}
+
+              </option>
+
+              <!--  -->
+
+              <!--  -->
+
+            </select>
+          </div>
+
+        </div>
+
+
+
+        <div style="text-align: center;">
+          <button type="submit" class="btn btn-primary">Add</button>
+
+        </div>
+
+      </form>
+
+      </div>
+      </div>
+      </div>
+
+
+
+
+
+</section>
+
+
+<!-- add section ends  -->
+
+
+
+
+
+<div class="row">
+  <div class="col-xl-12">
+    <!-- <app-card cardTitle="" [options]="false" blockClass="table-border-style"> -->
+      <!-- <input type="button" routerLink="/dashboard/zo/add" mat-raised-button color="primary" class="btn btn-primary w-100"  value="Add Zone"> -->
+      <a (click)="addZone()" class="btn btn-sm btn-primary action-btn"><i class="fas fa-add"></i></a>
+
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>SNO</th>
+              <th>
+BANNER IMAGE
+              </th>
+              <th>
+                ASILE
+                </th>
+              <th>
+                BEACON</th>
+              <th>
+                TYPE
+                </th>
+                <th>
+                  POSITION
+
+                  </th>
+                  <th>
+                    Action
+
+                    </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of data; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>
+                <img class="table-img" src={{item.bannerUrl}} />
+                <!-- {{ item.bannerUrl }}</td> -->
+                <!-- Replace with actual property names from your API response -->
+              <td>{{ item.aisle }}</td>
+              <td>{{ item.beacon }}</td>
+              <td>{{ item.type }}</td>
+              <td>{{ item.position }}</td>
+              <td>
+                <a (click)="editZone(item)" class="btn btn-sm btn-primary action-btn" style="margin-left: 10px;"><i class="fas fa-pen"></i></a>
+                <a  class="btn btn-sm btn-danger action-btn" style="margin-left: 10px;"><i class="fas fa-trash"></i>
+                </a>
+                <!-- <a (click)="openModal()" class="btn btn-sm btn-danger action-btn"><i class="icon-trash"></i></a> -->
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <!-- </app-card> -->
+  </div>
+</div>

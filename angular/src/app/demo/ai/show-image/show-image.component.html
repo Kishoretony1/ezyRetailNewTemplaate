@@ -1,0 +1,36 @@
+
+
+
+
+<h3 class="popup_title">
+  <h4><b>Ai Response</b></h4>
+  <button mat-button class="modal_close_icon" [mat-dialog-close]="true" cdkFocusInitial (click)="closeDialog()">
+      <i class="material-icons">
+          close
+      </i>
+  </button>
+</h3>
+<mat-dialog-content class="mat-typography md-dialog" align="center">
+  <div class="box box-primary">
+      <div class="box-body mg-l">
+          <div class="row">
+              <div class="col-md-12">
+                  <img src="{{data.imageFore}}" (load)="truenoffLoader()" (error)="truenoffLoader()"
+                  style="width: 75%">
+                  <img src="{{data.imageBack}}" (load)="truenoffLoader()" (error)="truenoffLoader()"
+                  style="width: 75%">
+                  <img src="{{data.imageCrop}}" (load)="truenoffLoader()" (error)="truenoffLoader()"
+                  style="width: 75%">
+                  <img src="{{data.imageFinal}}" (load)="truenoffLoader()" (error)="truenoffLoader()"
+                  style="width: 75%">
+                  <!-- <h2>{{data.productName + ' (' + data.barCode + ') '}} </h2> -->
+
+              </div>
+          </div>
+
+          <div class="clearfix"></div>
+      </div>
+  </div>
+
+
+</mat-dialog-content>

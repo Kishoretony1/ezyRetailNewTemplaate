@@ -1,0 +1,46 @@
+.popup_title{
+    padding: 10px;
+    line-height: 22px;
+    font-size: 18px;
+    background-color: #3b3e47;
+    color: #fff;
+    text-align: left;
+    margin: 0;
+ }
+ .popup_title{ position: relative;}
+ .mat-dialog-actions{
+  margin-bottom: 0px;
+  padding: 0;
+   min-height: auto;
+ }
+ /* .dialogBtn.mat-raised-button.mat-primary{
+  background-color: #203764;
+ } */
+ .dialogBtn.mat-raised-button.mat-basic{
+  background-color: #888888; color: #FFF;
+ }
+ .popup_title{ position: relative;}
+ .mat-dialog-content{ margin: 0 !important; padding: 25px 0 10px;}
+ button.modal_close_icon {
+    position: absolute;
+    /* right: -10px; */
+    right: 0px;
+    top: 3px;
+}
+.warn , .btnNo{
+  background-color: #ed6b75;
+  color: #fff !important;
+}
+.success  {
+  background-color: #4CAF50;
+}
+.btnYes{
+  color: #fff !important;
+  background-color: #337ab7 !important;
+}
+.btnNo{
+  background-color: #ed6b75 !important;
+  color: #fff !important;
+
+
+}

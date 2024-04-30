@@ -1,0 +1,21 @@
+<h3 class="popup_title" [ngClass]="data ? data.type : ''" >Info
+    <button mat-button class="modal_close_icon"  [mat-dialog-close]="true" cdkFocusInitial>
+      <i class="fas fa-circle-xmark">
+        
+      </i>
+    </button>
+
+  </h3>
+
+  <mat-dialog-content class="mat-typography md-dialog" align="center">
+
+
+    <p align="center">{{data.message}}</p>
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="center">
+      <button *ngIf="data.btnClose" mat-raised-button (click)="closeDialog('ok')" class="mat-focus-indicator mat-raised-button mat-button-base btnYes" cdkFocusInitial >Close</button>
+      <button *ngIf="data.btnYes" mat-raised-button (click)="closeDialog('yes')" class="mat-focus-indicator mat-raised-button mat-button-base btnYes" cdkFocusInitial >Yes</button>
+      <button *ngIf="data.btnNo" mat-raised-button (click)="closeDialog('no')" class="mat-focus-indicator mat-raised-button mat-button-base btnNo" cdkFocusInitial >No</button>
+
+  </mat-dialog-actions>

@@ -1,0 +1,51 @@
+<div class="row">
+
+  <div class="col-xs-12 col-sm-12">
+
+      <div class="portlets">
+
+              <div class="actions">
+                <div class="btn-group">
+                <button type="button" class="btn btn-shadow btn-info" (click)="printSrc()" style="margin-left: 10px;">Print</button>
+                <button type="button" class="btn btn-shadow btn-success" (click)="openSendInvoice(customerEmail,customerPhoneNo)" style="margin-left: 10px;">Send Invoice</button>
+                  <a (click)="transactionDetailsBack()" type="button" class="btn btn-shadow btn-dark" ngbTooltip="btn-outline-dark" style="margin-left: 10px;" *ngIf="!page"> Back</a>
+                  </div>
+
+
+
+
+
+
+
+
+                </div>
+
+
+
+      </div>
+
+
+      <div class="box box-primary">
+          <div class="box-body">
+              <div class="row">
+                  <div class="col-md-12 iframe_height">
+                  <iframe [src]="url" frameborder="0" class="iframe_content"  id="myIframe" [height]="iframeHeight">
+
+                  </iframe>
+
+
+                  </div>
+              </div>
+
+            </div>
+      </div>
+  </div><!-- content -->
+</div>
+
+
+
+
+
+
+
+

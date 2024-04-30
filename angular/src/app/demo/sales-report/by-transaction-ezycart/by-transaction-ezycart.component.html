@@ -1,0 +1,208 @@
+
+
+<!-- data table -->
+<div class="row">
+  <div class="col-xl-12">
+    <div blockClass="table-border-style">
+      <div class="row">
+
+      </div>
+      <div id="style-3" class="example-container">
+
+        <div  class="grid_heading">
+
+          <h2>SALES REPORT</h2>
+
+        </div>
+
+        <!-- filter header -->
+        <div class="row" style="margin-bottom:20px">
+          <div  class="col-md-3">
+
+            <div class="input-group-daterangepicker">
+              <span class="input-wrap">
+                <input
+                type="text"
+                ngxDaterangepickerMd
+                [(ngModel)]="selected"
+                (ngModelChange)="onDateRangeChange($event)"
+                [showCustomRangeLabel]="true"
+                [alwaysShowCalendars]="true"
+                [ranges]="ranges"
+                [linkedCalendars]="true"
+                [showClearButton]="true"
+                placeholder="Select Range"
+                id="dateInput"
+              >
+            </span>
+
+            <span class="input-group-btn date_picker_svg">
+                  <span class="">
+                    <svg version="1.1" width="16" height="16" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 122.88"  style="enable-background:new 0 0 122.88 122.88" xml:space="preserve"><g><path d="M81.61,4.73c0-2.61,2.58-4.73,5.77-4.73c3.19,0,5.77,2.12,5.77,4.73v20.72c0,2.61-2.58,4.73-5.77,4.73 c-3.19,0-5.77-2.12-5.77-4.73V4.73L81.61,4.73z M66.11,103.81c-0.34,0-0.61-1.43-0.61-3.2c0-1.77,0.27-3.2,0.61-3.2H81.9 c0.34,0,0.61,1.43,0.61,3.2c0,1.77-0.27,3.2-0.61,3.2H66.11L66.11,103.81z M15.85,67.09c-0.34,0-0.61-1.43-0.61-3.2 c0-1.77,0.27-3.2,0.61-3.2h15.79c0.34,0,0.61,1.43,0.61,3.2c0,1.77-0.27,3.2-0.61,3.2H15.85L15.85,67.09z M40.98,67.09 c-0.34,0-0.61-1.43-0.61-3.2c0-1.77,0.27-3.2,0.61-3.2h15.79c0.34,0,0.61,1.43,0.61,3.2c0,1.77-0.27,3.2-0.61,3.2H40.98 L40.98,67.09z M66.11,67.09c-0.34,0-0.61-1.43-0.61-3.2c0-1.77,0.27-3.2,0.61-3.2H81.9c0.34,0,0.61,1.43,0.61,3.2 c0,1.77-0.27,3.2-0.61,3.2H66.11L66.11,67.09z M91.25,67.09c-0.34,0-0.61-1.43-0.61-3.2c0-1.77,0.27-3.2,0.61-3.2h15.79 c0.34,0,0.61,1.43,0.61,3.2c0,1.77-0.27,3.2-0.61,3.2H91.25L91.25,67.09z M15.85,85.45c-0.34,0-0.61-1.43-0.61-3.2 c0-1.77,0.27-3.2,0.61-3.2h15.79c0.34,0,0.61,1.43,0.61,3.2c0,1.77-0.27,3.2-0.61,3.2H15.85L15.85,85.45z M40.98,85.45 c-0.34,0-0.61-1.43-0.61-3.2c0-1.77,0.27-3.2,0.61-3.2h15.79c0.34,0,0.61,1.43,0.61,3.2c0,1.77-0.27,3.2-0.61,3.2H40.98 L40.98,85.45z M66.11,85.45c-0.34,0-0.61-1.43-0.61-3.2c0-1.77,0.27-3.2,0.61-3.2H81.9c0.34,0,0.61,1.43,0.61,3.2 c0,1.77-0.27,3.2-0.61,3.2H66.11L66.11,85.45z M91.25,85.45c-0.34,0-0.61-1.43-0.61-3.2c0-1.77,0.27-3.2,0.61-3.2h15.79 c0.34,0,0.61,1.43,0.61,3.2c0,1.77-0.27,3.2-0.61,3.2H91.25L91.25,85.45z M15.85,103.81c-0.34,0-0.61-1.43-0.61-3.2 c0-1.77,0.27-3.2,0.61-3.2h15.79c0.34,0,0.61,1.43,0.61,3.2c0,1.77-0.27,3.2-0.61,3.2H15.85L15.85,103.81z M40.98,103.81 c-0.34,0-0.61-1.43-0.61-3.2c0-1.77,0.27-3.2,0.61-3.2h15.79c0.34,0,0.61,1.43,0.61,3.2c0,1.77-0.27,3.2-0.61,3.2H40.98 L40.98,103.81z M29.61,4.73c0-2.61,2.58-4.73,5.77-4.73s5.77,2.12,5.77,4.73v20.72c0,2.61-2.58,4.73-5.77,4.73 s-5.77-2.12-5.77-4.73V4.73L29.61,4.73z M6.4,45.32h110.07V21.47c0-0.8-0.33-1.53-0.86-2.07c-0.53-0.53-1.26-0.86-2.07-0.86H103 c-1.77,0-3.2-1.43-3.2-3.2c0-1.77,1.43-3.2,3.2-3.2h10.55c2.57,0,4.9,1.05,6.59,2.74c1.69,1.69,2.74,4.02,2.74,6.59v27.06v65.03 c0,2.57-1.05,4.9-2.74,6.59c-1.69,1.69-4.02,2.74-6.59,2.74H9.33c-2.57,0-4.9-1.05-6.59-2.74C1.05,118.45,0,116.12,0,113.55V48.52 V21.47c0-2.57,1.05-4.9,2.74-6.59c1.69-1.69,4.02-2.74,6.59-2.74H20.6c1.77,0,3.2,1.43,3.2,3.2c0,1.77-1.43,3.2-3.2,3.2H9.33 c-0.8,0-1.53,0.33-2.07,0.86c-0.53,0.53-0.86,1.26-0.86,2.07V45.32L6.4,45.32z M116.48,51.73H6.4v61.82c0,0.8,0.33,1.53,0.86,2.07 c0.53,0.53,1.26,0.86,2.07,0.86h104.22c0.8,0,1.53-0.33,2.07-0.86c0.53-0.53,0.86-1.26,0.86-2.07V51.73L116.48,51.73z M50.43,18.54 c-1.77,0-3.2-1.43-3.2-3.2c0-1.77,1.43-3.2,3.2-3.2h21.49c1.77,0,3.2,1.43,3.2,3.2c0,1.77-1.43,3.2-3.2,3.2H50.43L50.43,18.54z"/></g></svg>
+                </span>
+            </span>
+
+
+            </div>
+
+
+
+
+
+
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+
+              <span class="input-wrap">
+                  <input  type="search" class="input"
+                  matInput [(ngModel)]="filterText" (keyup)="applyFilter($event.target)" placeholder="Filter" type="text" id="contactListingContactSearch"  >
+              </span>
+
+              <span class="input-group-btn search_svg">
+                    <span class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16" class="" style="margin-top: 10px;"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.333 12.667A5.333 5.333 0 1 0 7.333 2a5.333 5.333 0 0 0 0 10.667zM14 14l-2.9-2.9"></path></svg>
+                  </span>
+              </span>
+          </div>
+          </div>
+
+          <div  class="col-md-3">
+            <div class="input-group">
+
+              <mat-select placeholder="Filter by Status" style="padding: 10px;">
+                <mat-option value="4">Reset the Filter </mat-option>
+
+                <mat-option value="0">InActive</mat-option>
+                <mat-option value="1">Active</mat-option>
+
+              </mat-select>
+      </div>
+
+          </div>
+
+
+          <!-- <div class="col-md-2 donwload_csv">
+            <button color="primary"
+                          class="btn downloadcsv_but tooltips download_butt" matTooltip="Download as CSV">
+                  <i class="material-icons"  type="button"
+                  id="searchbtnid" (click)="downloadCsv()" >download</i>
+
+
+                      </button>
+          </div> -->
+          <div class="col-md-1" style="left: 120px;
+        text-align: end;
+        position: relative;">
+          <button color="primary"
+                        class="btn downloadcsv_but tooltips" matTooltip="Add an Advertisement">
+
+                <i class="material-icons" type="button"  style="font-size: 25px;">add</i>
+
+                    </button>
+        </div>
+
+
+
+
+          <div class="col-md-2 referesh_icon_div">
+              <a type="button" class="referesh_icon fa fa-refresh" (click)="refreshPage()" aria-expanded="false" >
+              </a>
+          </div>
+        </div>
+        <!--  -->
+
+
+        <div class="example-header">
+
+        </div>
+<!--  -->
+<table mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_head"> Tran. ID </th>
+      <td mat-cell *matCellDef="let row" class="table_row"> {{row.id}} </td>
+  </ng-container>
+  <ng-container matColumnDef="invoiceNum">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_head"> Invoice Num. </th>
+      <td mat-cell *matCellDef="let row" class="table_row">
+          <a (click)="transactionDetails(row)"
+              [ngClass]="row.posStatusText == 'Pending' ? 'btn-danger':'btn-success' " class="btn btn-sm">
+              {{row.invoiceNum}} </a>
+      </td>
+  </ng-container>
+  <ng-container matColumnDef="transactionDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_head"> Date and Time</th>
+      <td mat-cell *matCellDef="let row" class="table_row"> {{row.transactionDate ? row.transactionDate:'-'}} </td>
+  </ng-container>
+  <ng-container matColumnDef="customerId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_head"> Customer ID </th>
+      <td mat-cell *matCellDef="let row" class="table_row"> {{row.customerId ? row.customerId : '-'}} </td>
+  </ng-container>
+  <ng-container matColumnDef="customerName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_head"> Customer Name </th>
+      <td mat-cell *matCellDef="let row" class="table_row"> {{row.customerName ? row.customerName : '-'}} </td>
+  </ng-container>
+  <ng-container matColumnDef="paymenttype">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_head"> Payment Type </th>
+      <td mat-cell *matCellDef="let row" class="table_row"> {{row.paymentMethod ? row.paymentMethod : '-' }} </td>
+  </ng-container>
+  <ng-container matColumnDef="paymentRef">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_head"> Payment Reference </th>
+      <td mat-cell *matCellDef="let row" class="table_row"> {{row.transactionRef ? row.transactionRef : '-' }} </td>
+  </ng-container>
+  <ng-container matColumnDef="totalItems">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_head">Total<br>Items </th>
+      <td mat-cell *matCellDef="let row" class="table_row"> {{row.totalItemsDisplay}} </td>
+  </ng-container>
+  <ng-container matColumnDef="subTotal">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_head">SubTotal<br>({{auth.getCurrency()}})</th>
+      <td mat-cell *matCellDef="let row" class="table_row">
+          {{row.subTotal}}
+      </td>
+  </ng-container>
+  <ng-container matColumnDef="tax">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_head">Tax<br>({{auth.getCurrency()}})</th>
+      <td mat-cell *matCellDef="let row" class="table_row">
+          {{row.tax ? row.tax : 0}}
+      </td>
+  </ng-container>
+  <ng-container matColumnDef="promodiscount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_head">Promo Discount </th>
+      <td mat-cell *matCellDef="let row" class="table_row">
+          {{row.promoDiscount ? row.promoDiscount : 0}}
+      </td>
+  </ng-container>
+  <ng-container matColumnDef="discount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_head">Special Discount </th>
+      <td mat-cell *matCellDef="let row" class="table_row">
+          {{row.discount}}
+      </td>
+  </ng-container>
+  <ng-container matColumnDef="grandTotal">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table_head">Grand<br>Total ({{auth.getCurrency()}})</th>
+      <td mat-cell *matCellDef="let row" class="table_row">
+          {{row.grandTotal}}
+      </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+          <!--  -->
+          <div>
+            <span *ngIf="dataSource">
+              <div class="no-records" *ngIf="dataSource.filteredData?.length === 0">No records found</div>
+            </span>
+            <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+          </div>
+          <!--  -->
+
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
